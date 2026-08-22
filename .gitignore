@@ -9,3 +9,4 @@ _docker/
 __pycache__/
 metadata/
 _smoke.exe
+bugs_fields.json
