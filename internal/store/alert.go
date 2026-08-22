@@ -135,12 +135,12 @@ func scanAlert(row rowScanner) (model.Alert, error) {
 		severity       string
 		status         string
 		firstSeen      string
-		lastSeen       string
+		latestSeen     string
 		acknowledgedAt string
 		closedAt       string
 	)
 	if err := row.Scan(&alert.ID, &alert.SiteID, &alert.ChamberID, &alert.SensorID, &kind,
-		&severity, &status, &alert.DedupKey, &alert.Message, &firstSeen, &lastSeen,
+		&severity, &status, &alert.DedupKey, &alert.Message, &firstSeen, &latestSeen,
 		&acknowledgedAt, &closedAt, &alert.Occurrences); err != nil {
 		return model.Alert{}, mapNotFound(err)
 	}
@@ -148,7 +148,7 @@ func scanAlert(row rowScanner) (model.Alert, error) {
 	alert.Severity = model.AlertSeverity(severity)
 	alert.Status = model.AlertStatus(status)
 	alert.FirstSeenAt = parseTime(firstSeen)
-	alert.LastSeenAt = parseTime(lastSeen)
+	alert.LastSeenAt = parseTime(latestSeen)
 	alert.AcknowledgedAt = parseTime(acknowledgedAt)
 	alert.ClosedAt = parseTime(closedAt)
 	return alert, nil

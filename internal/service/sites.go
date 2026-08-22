@@ -108,7 +108,7 @@ func (s *Service) SiteSummary(siteID string) (model.SiteSummary, error) {
 	}
 	now := s.now()
 	windowStart := now.Add(-24 * time.Hour)
-	completeness, lastReading, err := s.siteCompleteness(siteID, sensors, windowStart, now)
+	completeness, latestReading, err := s.siteCompleteness(siteID, sensors, windowStart, now)
 	if err != nil {
 		return model.SiteSummary{}, err
 	}
@@ -125,7 +125,7 @@ func (s *Service) SiteSummary(siteID string) (model.SiteSummary, error) {
 		SensorCount:       len(sensors),
 		ActiveAlertCount:  activeAlerts,
 		Completeness:      completeness,
-		LastReadingAt:     lastReading,
+		LastReadingAt:     latestReading,
 		ProtectionMessage: message,
 	}, nil
 }

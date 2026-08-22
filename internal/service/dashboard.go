@@ -46,7 +46,7 @@ func (s *Service) Overview() (model.Overview, error) {
 			overview.OpenAlerts += activeAlerts
 			overview.CriticalAlerts += criticalAlerts
 		}
-		completeness, lastReading, err := s.siteCompleteness(site.ID, sensors, windowStart, now)
+		completeness, latestReading, err := s.siteCompleteness(site.ID, sensors, windowStart, now)
 		if err != nil {
 			return model.Overview{}, err
 		}
@@ -69,7 +69,7 @@ func (s *Service) Overview() (model.Overview, error) {
 			SensorCount:       len(sensors),
 			ActiveAlertCount:  activeAlerts,
 			Completeness:      completeness,
-			LastReadingAt:     lastReading,
+			LastReadingAt:     latestReading,
 			ProtectionMessage: protection,
 		})
 	}

@@ -116,10 +116,10 @@ func (s *Service) EvaluateOfflineSensors(maxAge time.Duration) (int, error) {
 	now := s.now()
 	touched := 0
 	for _, sensor := range sensors {
-		lastSeen, ok := s.cache.SensorLastSeen(sensor.ID)
+		latestSeen, ok := s.cache.SensorLastSeen(sensor.ID)
 		reference := sensor.LastHeartbeatAt
-		if ok && lastSeen.After(reference) {
-			reference = lastSeen
+		if ok && latestSeen.After(reference) {
+			reference = latestSeen
 		}
 		effective := sensor
 		effective.LastHeartbeatAt = reference
