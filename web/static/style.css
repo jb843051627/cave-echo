@@ -1,0 +1,106 @@
+:root {
+  --bg: #10151b;
+  --panel: #1a222c;
+  --text: #d8e2ec;
+  --accent: #4fc3a1;
+  --warn: #e0b34f;
+  --danger: #e06c5f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: var(--panel);
+  border-bottom: 1px solid #2b3644;
+}
+
+h1 { font-size: 18px; margin: 0; }
+h2 { font-size: 15px; margin: 0 0 10px; color: var(--accent); }
+
+main { padding: 20px 24px; display: grid; gap: 22px; }
+
+section {
+  background: var(--panel);
+  border: 1px solid #26313e;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+th, td {
+  text-align: left;
+  padding: 7px 9px;
+  border-bottom: 1px solid #26313e;
+  white-space: nowrap;
+}
+
+th { color: #8fa3b5; font-weight: 600; }
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #31404f;
+  font-size: 12px;
+}
+
+.badge.ok { background: rgba(79, 195, 161, .18); color: var(--accent); }
+
+.notice {
+  margin: 6px 0;
+  padding: 8px 12px;
+  border-left: 3px solid var(--warn);
+  background: rgba(224, 179, 79, .08);
+  font-size: 13px;
+}
+
+.panel {
+  background: #0d1218;
+  border: 1px solid #26313e;
+  border-radius: 6px;
+  padding: 12px;
+  min-height: 48px;
+  white-space: pre-wrap;
+  font-size: 13px;
+}
+
+button {
+  background: #2b3947;
+  color: var(--text);
+  border: 1px solid #3a4b5c;
+  border-radius: 4px;
+  padding: 3px 10px;
+  margin-right: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+button:hover { border-color: var(--accent); color: var(--accent); }
+
+input {
+  background: #0d1218;
+  border: 1px solid #3a4b5c;
+  border-radius: 4px;
+  color: var(--text);
+  padding: 6px 10px;
+  margin-right: 8px;
+}
+
+footer {
+  padding: 14px 24px;
+  font-size: 12px;
+  color: #8fa3b5;
+}
+
+footer a { color: var(--accent); }
