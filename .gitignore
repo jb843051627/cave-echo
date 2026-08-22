@@ -1,0 +1,11 @@
+data/
+*.db
+*.db-shm
+*.db-wal
+cases/
+_docker/
+*.py
+*.pyc
+__pycache__/
+metadata/
+_smoke.exe
