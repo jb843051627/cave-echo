@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>cave-echo 洞穴监测控制台</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>cave-echo 喀斯特洞穴保护监测台</h1>
+    <div id="health" class="badge">检测中…</div>
+  </header>
+  <main>
+    <section id="overview">
+      <h2>站点总览</h2>
+      <div id="seasonal" class="notices"></div>
+      <table id="sites">
+        <thead>
+          <tr>
+            <th>编号</th><th>名称</th><th>等级</th><th>状态</th>
+            <th>洞室</th><th>传感器</th><th>活动告警</th><th>完整率</th><th>保护提示</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+    <section>
+      <h2>告警</h2>
+      <table id="alerts">
+        <thead>
+          <tr><th>类型</th><th>级别</th><th>状态</th><th>洞室</th><th>消息</th><th>首次</th><th>次数</th><th>操作</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+    <section>
+      <h2>滴水趋势与气体样本</h2>
+      <label for="chamber">洞室 ID：</label>
+      <input id="chamber" placeholder="chm-…" />
+      <button id="load-chamber">加载</button>
+      <pre id="trend" class="panel"></pre>
+      <pre id="gas" class="panel"></pre>
+    </section>
+  </main>
+  <footer>数据导出：<a href="/api/export/readings.csv?site_id=" >readings.csv</a> ·
+    <a href="/api/export/bundle.json">bundle.json</a>（UTC）</footer>
+  <script src="/app.js"></script>
+</body>
+</html>
