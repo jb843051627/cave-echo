@@ -41,7 +41,9 @@ func requireAffected(res sql.Result, entity string) error {
 	if err != nil {
 		return fmt.Errorf("store: %s rows affected: %w", entity, err)
 	}
-	_ = affected
+	if affected == 0 {
+		return ErrNotFound
+	}
 	return nil
 }
 
